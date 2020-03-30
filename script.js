@@ -2,7 +2,7 @@ var button = document.querySelector(".enter");
 var input = document.querySelector(".userInput");
 var ul = document.querySelector(".shoppingList");
 
-function addItem(e) {
+function createListElement(e) {
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
@@ -13,14 +13,20 @@ function inputLength(e) {
   return input.value.length;
 }
 
-button.addEventListener("click", function(e) {
-  if (inputLength(e)) {
-    addItem(e);
-  }
-});
+// CallBack Functions
 
-document.addEventListener("keypress", function(e) {
-  if (inputLength(e) > 0 && e.which === 13) {
-    addItem(e);
+function addListAfterClick() {
+  if (inputLength()) {
+    createListElement();
   }
-});
+}
+
+function addListAfterKeyPress(event) {
+  if (inputLength() > 0 && event.which === 13) {
+    createListElement();
+  }
+}
+
+button.addEventListener("click", addListAfterClick);
+
+document.addEventListener("keypress", addListAfterKeyPress);
