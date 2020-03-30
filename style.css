@@ -1,0 +1,11 @@
+.no-pain {
+  color: #4554aa;
+  font-size: 3rem;
+}
+.userInput,
+.enter {
+  padding: 0.5rem 1rem;
+}
+.listOfTodos {
+  font-size: 1.5rem;
+}
